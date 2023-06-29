@@ -44,8 +44,8 @@ public class Student {
     /**
      * 修改某个学生的成绩
      *
-     * @param index 索引
-     * @param data  数据值
+     * @param index 所修改成绩在 grades 数组中的索引
+     * @param data  成绩值
      */
     public void setGrades(int index, double data) {
         this.grades[index] = data;

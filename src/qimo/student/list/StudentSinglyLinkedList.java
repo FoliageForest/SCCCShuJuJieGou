@@ -64,6 +64,50 @@ public class StudentSinglyLinkedList {
         this.listSize--;
     }
 
+    /**
+     * 通过学生的学号删除符合条件的学生信息. 会遍历整个单链表
+     *
+     * @param stuId 传入的学号
+     */
+    public void deleteStuByStuId(int stuId) {
+        Node p = this.listHead.getNext();
+        Node pFront = this.listHead; // 暂存前驱节点
+        while (p != null) {
+            if (p.getData().getStuId() == stuId) {
+                // 当前节点后移, 前驱节点不动
+                p = p.getNext();
+                pFront.setNext(p);
+                this.listSize--;
+            } else {
+                // 当前节点后移, 前驱节点后移
+                p = p.getNext();
+                pFront = pFront.getNext();
+            }
+        }
+    }
+
+    /**
+     * 通过学生的姓名删除符合条件的学生信息. 会遍历整个单链表
+     *
+     * @param stuName 传入的学生姓名
+     */
+    public void deleteStuByName(String stuName) {
+        Node p = this.listHead.getNext();
+        Node pFront = this.listHead; // 暂存前驱节点
+        while (p != null) {
+            if (p.getData().getName().equals(stuName)) {
+                // 当前节点后移, 前驱节点不动
+                p = p.getNext();
+                pFront.setNext(p);
+                this.listSize--;
+            } else {
+                // 当前节点后移, 前驱节点后移
+                p = p.getNext();
+                pFront = pFront.getNext();
+            }
+        }
+    }
+
     //////////////////////////////////////////////////////////////////////////
     /////////////////   计   算   总   分   和   平   均   分   ///////////////////////////////////
     //////////////////////////////////////////////////////////////////////////
@@ -121,6 +165,10 @@ public class StudentSinglyLinkedList {
         }
         return null;
     }
+
+    //////////////////////////////////////////////////////////////////////////
+    /////////////////   工   具   方   法   ///////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////
 
     /**
      * 把单链表转为数组

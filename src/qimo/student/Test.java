@@ -13,7 +13,7 @@ public class Test {
             s.setGrades(new double[]{Math.random() * 100, Math.random() * 100, Math.random() * 100});
             list.addNodeAtFirst(s);
         }
-        System.out.println(list.findStudentByName("name001"));
+
     }
 
 }
