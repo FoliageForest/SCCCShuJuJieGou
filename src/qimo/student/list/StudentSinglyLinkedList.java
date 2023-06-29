@@ -105,19 +105,21 @@ public class StudentSinglyLinkedList {
     //////////////////////////////////////////////////////////////////////////
 
     /**
-     * 通过学生名字查找学生, 返回对应学生类的单链表
+     * 通过学生名字查找学生, 返回对应学生类
+     *
+     * @param studentName 学生姓名
+     * @return 查找到的学生对象. 未找到则返回 null
      */
-    public StudentSinglyLinkedList findStudentByName(String studentName) {
-        StudentSinglyLinkedList list = new StudentSinglyLinkedList();
+    public Student findStudentByName(String studentName) {
         Node p = this.listHead;
         while (p.getNext() != null) {
             p = p.getNext();
             Student student = p.getData();
             if (student.getName().equals(studentName)) {
-                list.addNodeAtFirst(student);
+                return student;
             }
         }
-        return list;
+        return null;
     }
 
 }
