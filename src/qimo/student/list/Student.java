@@ -43,7 +43,7 @@ public class Student {
     }
 
     /**
-     * 修改某个学生的成绩
+     * 修改某个学生的单科成绩
      *
      * @param index 所修改成绩在 grades 数组中的索引
      * @param data  成绩值

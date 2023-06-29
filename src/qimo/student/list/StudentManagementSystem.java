@@ -15,6 +15,7 @@ public class StudentManagementSystem {
             System.out.println("4. 修改学生信息");
             System.out.println("5. 删除学生信息");
             System.out.println("6. 退出");
+            System.out.println("7. 初始化学生信息（仅用于测试模式）");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -41,7 +42,9 @@ public class StudentManagementSystem {
                 case 6:
                     // 退出程序
                     System.exit(0);
-                    return;
+                case 7:
+                    // 初始化学生信息（仅用于测试模式）
+                    initializeTestData();
                 default:
                     System.out.println("无效的选择，请重新输入。");
                     break;
@@ -49,15 +52,34 @@ public class StudentManagementSystem {
         }
     }
 
+    /**
+     * 初始化学生信息（仅用于测试模式）
+     */
+    private static void initializeTestData() {
+        int stuIdInit = 123456000;
+        for (int i = 0; i < 9; i++) {
+            double[] grades = {Math.random() * 100, Math.random() * 100, Math.random() * 100};
+            Student s = new Student(++stuIdInit, "name00" + (i + 1), 'M', "计应", "2132", grades);
+            studentsSinglyLinkedList.addNodeAtFirst(s);
+        }
+    }
+
+    /**
+     * TODO 修改学生信息
+     */
     private static void updateStudent() {
-        // TODO 修改学生信息
-        System.out.println("当前只支持修改学生成绩");
+        System.out.println("当前只支持修改学生成绩，当前只支持通过学生姓名定位学生。是否继续？(Y/N)");
     }
 
+    /**
+     * TODO 删除学生信息
+     */
     private static void deleteStudent() {
-        // TODO 删除学生信息
     }
 
+    /**
+     * 添加学生信息
+     */
     public static void addStudent() {
         System.out.println("int stuId:");
         int stuId = scanner.nextInt();
@@ -87,8 +109,10 @@ public class StudentManagementSystem {
         studentsSinglyLinkedList.addNodeAtFirst(student);
     }
 
+    /**
+     * TODO 查询学生信息和学生成绩
+     */
     public static void searchStudent() {
-        // TODO 查询学生信息和学生成绩
     }
 
 }
