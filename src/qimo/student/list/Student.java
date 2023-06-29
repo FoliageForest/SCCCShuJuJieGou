@@ -4,7 +4,7 @@ package qimo.student.list;
 参考千锋的教学
  */
 
-class Student {
+public class Student {
     /**
      * 学号
      */
