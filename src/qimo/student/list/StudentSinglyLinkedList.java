@@ -65,13 +65,49 @@ public class StudentSinglyLinkedList {
     }
 
     //////////////////////////////////////////////////////////////////////////
+    /////////////////   计   算   总   分   和   平   均   分   ///////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////
+
+    /**
+     * 根据学号计算该生平均成绩
+     *
+     * @param stuId 学号
+     * @return 该生平均成绩. 无该学生则返回 0.0
+     */
+    public double computeGradesAvg(int stuId) {
+        return this.computeGradesSum(stuId) / 3.0;
+    }
+
+    /**
+     * 根据学号计算该生总成绩
+     *
+     * @param stuId 学号
+     * @return 该生总成绩. 无该学生则返回 0.0
+     */
+    public double computeGradesSum(int stuId) {
+        // TODO
+        Node p = this.listHead;
+        double sum = 0.0;
+        while (p.getNext() != null) {
+            p = p.getNext();
+            if (p.getData().getStuId() == stuId) {
+                for (double grade : p.getData().getGrades()) {
+                    sum += grade;
+                }
+                break;
+            }
+        }
+        return sum;
+    }
+
+    //////////////////////////////////////////////////////////////////////////
     /////////////////   查   找   节   点   ///////////////////////////////////
     //////////////////////////////////////////////////////////////////////////
 
     /**
-     * 通过学生名字查找学生, 返回对应学生类的单链表. 如果没有相应学生, 则返回 -1
+     * 通过学生名字查找学生, 返回对应学生类的单链表
      */
-    public StudentSinglyLinkedList findStudent(String studentName) {
+    public StudentSinglyLinkedList findStudentByName(String studentName) {
         StudentSinglyLinkedList list = new StudentSinglyLinkedList();
         Node p = this.listHead;
         while (p.getNext() != null) {
