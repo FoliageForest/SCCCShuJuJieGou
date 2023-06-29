@@ -4,6 +4,8 @@ package qimo.student.list;
 参考千锋的教学
  */
 
+import java.util.Arrays;
+
 public class Student {
     /**
      * 学号
@@ -99,5 +101,10 @@ public class Student {
 
     public double[] getGrades() {
         return grades;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" + "stuId=" + stuId + ", name='" + name + '\'' + ", sex=" + sex + ", major='" + major + '\'' + ", stuClass='" + stuClass + '\'' + ", grades=" + Arrays.toString(grades) + '}';
     }
 }
