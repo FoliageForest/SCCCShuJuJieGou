@@ -25,7 +25,7 @@ public class Student {
     /**
      * 三个科目的成绩
      */
-    private double[] grades = new double[3];
+    private double[] grades = {0.0, 0.0, 0.0};
 
     public Student(int stuId, String name, char sex, String major, String stuClass) {
         this.stuId = stuId;
@@ -47,6 +47,32 @@ public class Student {
      */
     public void setGrades(int index, double data) {
         this.grades[index] = data;
+    }
+
+    //////////////////////////////////////////////////////////////////////////
+    /////////////////   计   算   总   分   和   平   均   分   ///////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////
+
+    /**
+     * 计算当前学生的平均成绩
+     *
+     * @return 当前学生的平均成绩
+     */
+    public double computeGradesAvg() {
+        return this.computeGradesSum() / 3.0;
+    }
+
+    /**
+     * 计算当前学生的总成绩
+     *
+     * @return 当前学生的总成绩
+     */
+    public double computeGradesSum() {
+        double sum = 0.0;
+        for (double grade : this.grades) {
+            sum += grade;
+        }
+        return sum;
     }
 
     /////////  Getter  /////////
