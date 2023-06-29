@@ -29,12 +29,13 @@ public class Student {
      */
     private double[] grades = {0.0, 0.0, 0.0};
 
-    public Student(int stuId, String name, char sex, String major, String stuClass) {
+    public Student(int stuId, String name, char sex, String major, String stuClass, double[] grades) {
         this.stuId = stuId;
         this.name = name;
         this.sex = sex;
         this.major = major;
         this.stuClass = stuClass;
+        this.grades = grades;
     }
 
     public void setGrades(double[] grades) {
