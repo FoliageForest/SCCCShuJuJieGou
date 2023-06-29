@@ -3,6 +3,9 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/hw20230310/SinglyLinkedList.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hw20230310/Test.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/hw20230625/teachCode/BubbleSort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/hw20230625/teachCode/InsertionSort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/hw20230625/teachCode/ShellSort.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/qimo/student/Test.java" charset="UTF-8" />
   </component>
 </project>

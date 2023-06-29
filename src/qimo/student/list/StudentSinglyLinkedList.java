@@ -122,4 +122,19 @@ public class StudentSinglyLinkedList {
         return null;
     }
 
+    /**
+     * 把单链表转为数组
+     *
+     * @return 学生类数组
+     */
+    public Student[] list2Array() {
+        Student[] students = new Student[this.listSize];
+        Node p = this.listHead;
+        for (int i = 0; i < students.length; i++) {
+            p = p.getNext();
+            students[i] = p.getData();
+        }
+        return students;
+    }
+
 }
