@@ -129,7 +129,6 @@ public class StudentSinglyLinkedList {
      * @return 该生总成绩. 无该学生则返回 0.0
      */
     public double computeGradesSum(int stuId) {
-        // TODO
         Node p = this.listHead;
         double sum = 0.0;
         while (p.getNext() != null) {
@@ -149,7 +148,7 @@ public class StudentSinglyLinkedList {
     //////////////////////////////////////////////////////////////////////////
 
     /**
-     * 通过学生名字查找学生, 返回对应学生类
+     * 通过学生名字查找学生
      *
      * @param studentName 学生姓名
      * @return 查找到的学生对象. 未找到则返回 null

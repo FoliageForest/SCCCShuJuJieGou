@@ -1,5 +1,6 @@
 package qimo.student.list;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class StudentManagementSystem {
@@ -45,6 +46,7 @@ public class StudentManagementSystem {
                 case 7:
                     // 初始化学生信息（仅用于测试模式）
                     initializeTestData();
+                    break;
                 default:
                     System.out.println("无效的选择，请重新输入。");
                     break;
@@ -56,25 +58,46 @@ public class StudentManagementSystem {
      * 初始化学生信息（仅用于测试模式）
      */
     private static void initializeTestData() {
-        int stuIdInit = 123456000;
         for (int i = 0; i < 9; i++) {
             double[] grades = {Math.random() * 100, Math.random() * 100, Math.random() * 100};
-            Student s = new Student(++stuIdInit, "name00" + (i + 1), 'M', "计应", "2132", grades);
+            Student s = new Student(123456001 + i, "name00" + (i + 1), 'M', "计应", "2132", grades);
             studentsSinglyLinkedList.addNodeAtFirst(s);
         }
     }
 
     /**
-     * TODO 修改学生信息
+     * 修改学生信息
      */
     private static void updateStudent() {
         System.out.println("当前只支持修改学生成绩，当前只支持通过学生姓名定位学生。是否继续？(Y/N)");
+        if (!scanner.nextLine().equals("Y")) {
+            return;
+        }
+        System.out.print("请输出学生姓名：");
+        String stuName = scanner.nextLine();
+        Student student = studentsSinglyLinkedList.findStudentByName(stuName);
+        System.out.println("当前的学生成绩为：" + Arrays.toString(student.getGrades()) + "，请输入新的成绩：");
+        for (int i = 0; i < student.getGrades().length; i++) {
+            student.getGrades()[i] = scanner.nextDouble();
+            scanner.nextLine();
+        }
     }
 
     /**
-     * TODO 删除学生信息
+     * 删除学生信息
      */
     private static void deleteStudent() {
+        System.out.println("目前支持通过学号和通过姓名删除学生信息。");
+        System.out.println("请输入 id 以通过学号删除学生的信息，请输入 name 以通过姓名删除学生的信息。输入 Q 返回上一界面");
+        if ("id".equals(scanner.nextLine())) {
+            System.out.print("请输入 int stuId:");
+            int stuId = scanner.nextInt();
+            studentsSinglyLinkedList.deleteStuByStuId(stuId);
+        } else if ("name".equals(scanner.nextLine())) {
+            System.out.print("请输入 String name:");
+            String name = scanner.nextLine();
+            studentsSinglyLinkedList.deleteStuByName(name);
+        }
     }
 
     /**
@@ -110,9 +133,17 @@ public class StudentManagementSystem {
     }
 
     /**
-     * TODO 查询学生信息和学生成绩
+     * 查询学生信息和学生成绩
      */
     public static void searchStudent() {
+        System.out.print("请输出学生姓名：");
+        String stuName = scanner.nextLine();
+        Student student = studentsSinglyLinkedList.findStudentByName(stuName);
+        if (student == null) {
+            System.out.println("不存在此学生");
+            return;
+        }
+        System.out.println("当前学生的信息：" + student);
     }
 
 }

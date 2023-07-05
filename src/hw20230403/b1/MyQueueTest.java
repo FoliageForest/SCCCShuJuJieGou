@@ -1,4 +1,4 @@
-package hw20230403;
+package hw20230403.b1;
 
 public class MyQueueTest {
     public static void main(String[] args) {
